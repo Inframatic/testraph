@@ -1,5 +1,15 @@
+<% if user_signed_in? %>
+
+<div class="hero-unit">
+	<h1>Welcome back <%= current_user.username %></h1>
+</div>
+
+<% else %>
+
 <div class="hero-unit">
 <h1>Welcome to VIVIDAURA</h1>
 <p>VIVIDAURA is a service that allows musicians to collaberate world wide without the use of constant emailing and compressing.</p>
 <%= link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large" %>
 </div>
+
+<% end %>

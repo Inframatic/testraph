@@ -20,7 +20,6 @@ class User < ActiveRecord::Base
   private
 
   def sanitize_username
-  	binding.pry
   	self.username = username.downcase.gsub(" ", "")
   end
 end
