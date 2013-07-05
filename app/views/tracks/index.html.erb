@@ -1,6 +1,6 @@
-<h1>Listing tracks</h1>
+<h1>All tracks</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Title</th>
@@ -17,8 +17,10 @@
         <td><%= track.title %></td>
         <td><%= track.description %></td>
         <td><%= link_to 'Show', track %></td>
-        <td><%= link_to 'Edit', edit_track_path(track) %></td>
-        <td><%= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user == track.user %>
+          <td><%= link_to 'Edit', edit_track_path(track) %></td>
+          <td><%= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

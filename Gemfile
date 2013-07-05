@@ -30,6 +30,7 @@ gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'devise', '3.0.0.rc'
 gem 'simple_form', '~> 3.0.0.rc'
 gem 'pry', :group => :development
+gem 'carrierwave'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

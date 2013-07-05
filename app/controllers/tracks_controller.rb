@@ -1,6 +1,6 @@
 class TracksController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
-  before_action :set_track, only: [:show, :edit, :update, :delete]
+  before_action :set_track, only: [:show, :edit, :update, :destroy]
 
   def index
   	@tracks = Track.all
@@ -11,15 +11,18 @@ class TracksController < ApplicationController
   end
 
   def new
-  	@track = Track.new
+  	@track = current_user.tracks.new
   end
 
   def edit
+    @track = current_user.tracks.find(params[:id])
 
   end
 
   def create
-    @track = Track.new(track_params)
+    # @track = Track.new(track_params)
+
+    @track = current_user.tracks.new(track_params)
 
     respond_to do |format|
       if @track.save
@@ -31,7 +34,9 @@ class TracksController < ApplicationController
   end
 
   def update
-  	   respond_to do |format|
+    @track = current_user.tracks.find(params[:id])
+
+  	respond_to do |format|
       if @track.update(track_params)
         format.html { redirect_to @track, notice: 'Track was successfully updated.' }
       else
@@ -40,10 +45,12 @@ class TracksController < ApplicationController
     end
   end
 
-  def delete
-@track.destroy
-respond_to do |format|
-  format.html {redirect_to tracks_url}
+  def destroy
+    @track = current_user.tracks.find(params[:id])
+    @track.destroy
+    respond_to do |format|
+      format.html {redirect_to tracks_url}
+    end
   end
 
   private
@@ -55,6 +62,4 @@ respond_to do |format|
   def track_params
     params.require(:track).permit(:title, :description)
   end
-end
-
 end
