@@ -5,6 +5,7 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
+      <th>Users</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= track.title %></td>
         <td><%= track.description %></td>
+        <td><%= track.user.username %></td>
         <td><%= link_to 'Show', track %></td>
         <% if current_user == track.user %>
           <td><%= link_to 'Edit', edit_track_path(track) %></td>

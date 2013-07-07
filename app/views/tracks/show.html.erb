@@ -6,8 +6,19 @@
 </p>
 
 <p>
+	<audio controls="controls">
+	<source src= <%= @track.audio.url %> type="audio/mpeg">
+	</audio>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @track.description %>
+</p>
+
+<p>
+	<strong>User:</strong>
+<%= @track.user.username %>
 </p>
 <% if current_user == @track.user %>
 	<%= link_to 'Edit', edit_track_path(@track) %> |

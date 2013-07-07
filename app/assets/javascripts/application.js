@@ -16,3 +16,6 @@
 //= require_tree .
 // Loads all Bootstrap javascripts
 //= require bootstrap
+
+// Audio Player function
+$( function() { $( 'audio' ).audioPlayer(); } );
