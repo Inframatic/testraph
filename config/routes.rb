@@ -2,6 +2,7 @@ Vividaura::Application.routes.draw do
   resources :tracks
   get "tracks/index"
   devise_for :users
+  get 'users/:id' => 'users#show', as: :user
   root 'pages#home'
  
   # The priority is based upon order of creation: first created -> highest priority.

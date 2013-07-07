@@ -18,7 +18,7 @@
 
 <p>
 	<strong>User:</strong>
-<%= @track.user.username %>
+<%= link_to @track.user.username, @track.user %>
 </p>
 <% if current_user == @track.user %>
 	<%= link_to 'Edit', edit_track_path(@track) %> |
