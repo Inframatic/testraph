@@ -12,10 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 //= require_tree .
+// require jquery.turbolinks
 // Loads all Bootstrap javascripts
 //= require bootstrap
 
 // Audio Player function
-$( function() { $( 'audio' ).audioPlayer(); } );
+ $( function() { $( 'audio' ).audioPlayer(); } );
+

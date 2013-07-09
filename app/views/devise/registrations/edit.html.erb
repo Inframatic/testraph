@@ -1,6 +1,6 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, class: 'form-horizontal' }) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true, class: 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
   <span class="username_move">
   <p> Username:&nbsp;&nbsp; <%= resource.username %> </p>
@@ -8,15 +8,21 @@
   <%= f.input :email %>
   <%= f.input :password, label: "New Password", autocomplete: "off" %>
   <%= f.input :password_confirmation, label: "New Password Confirmation", autocomplete: "off" %>
-  <%= f.input :current_password %>
+
+  <h2>Update Avatar</h2>
+  <%= image_tag(@user.avatar_url) if @user.avatar? %>
+  <p class="upload_avatar_move">Upload Avatar <%= f.file_field :avatar %></p>
+
+
+
+  
 
   <div class="form-actions">
-    <%= f.submit "Update", class: "btn btn-primary"%>
+    <span class="edit_current_password"><%= f.input :current_password %></span>
+    <span class="update_button"><%= f.submit "Update", class: "btn btn-primary"%></span>
   </div>
 <% end %>
 
 <h3>Cancel my account</h3>
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
-
-<%= link_to "Back", :back %>

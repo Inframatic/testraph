@@ -1,4 +1,5 @@
 class TracksController < ApplicationController
+  include ActionController::Live
   before_filter :authenticate_user!, except: [:index]
   before_action :set_track, only: [:show, :edit, :update, :destroy]
 
