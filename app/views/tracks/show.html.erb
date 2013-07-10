@@ -6,15 +6,19 @@
 </p>
 
 <p>
-	<audio controls="controls">
-	<source src= <%= @track.audio.url %> type="audio/mpeg">
-	</audio>
-</p>
-
-<p>
   <strong>Description:</strong>
   <%= @track.description %>
 </p>
+
+<% @track.stems.each do |stem| %>
+<%= stem.id %>
+<p>
+	<audio controls="controls">
+		<source src= <%= stem.audio.url %> type="audio/mpeg">
+	</audio>
+</p>
+<% end %>
+
 
 <p>
 	<strong>User:</strong>

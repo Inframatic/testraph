@@ -1,0 +1,12 @@
+<h1>New Stem</h1>
+<%= simple_form_for(@stem, :url => track_stems_path, html: {:method => 'post', class: "form-horizontal"}) do |f| %>
+  <%= f.error_notification %>
+
+
+<p>Upload first stem: <%= f.file_field :audio %></p>
+
+<div class="form-actions">
+	<%= f.button :submit, class: "btn btn-primary" %>
+</div>
+
+  <% end %>

@@ -1,6 +1,8 @@
 Vividaura::Application.routes.draw do
-  resources :tracks
-  get "tracks/index"
+  resources :tracks do
+    resources :stems
+  end
+
   devise_for :users
   get 'users/:id' => 'users#show', as: :user
   root 'pages#home'

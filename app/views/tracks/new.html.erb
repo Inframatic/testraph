@@ -1,3 +1,31 @@
 <h1>New Track</h1>
-<%= render 'form' %>
+
+<%= form_for @track do |t| %>
+	<% if @track.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@track.errors.count, "error") %> prohibited this post from being saved:</h2>
+	    <ul>
+	    <% @track.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+
+	<%= t.label :title %>
+	<%= t.text_field :title %>
+
+	<%= t.label :description %>
+	<%= t.text_field :description %>	
+
+	<p>Upload first stem: </p>
+	<%= t.fields_for :stems do |stems_form| %>
+		<%= stems_form.file_field :audio %>
+	<% end %>
+
+	<div class="form-actions">
+		<%= t.button :submit, class: 'btn btn-primary' %>
+	</div>
+<% end %>
+
 <%= link_to 'Back', tracks_path %>

@@ -13,6 +13,7 @@ class TracksController < ApplicationController
 
   def new
   	@track = current_user.tracks.new
+    @track.stems.build
   end
 
   def edit
@@ -61,6 +62,6 @@ class TracksController < ApplicationController
   end
 
   def track_params
-    params.require(:track).permit(:title, :description, :audio)
+    params.require(:track).permit(:title, :description, :stems_attributes => [:audio])
   end
 end
