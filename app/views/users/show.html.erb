@@ -2,4 +2,13 @@
 <div class="avatar">
 	<img src=<%=@user.avatar.thumb.url%>>
 </div>
+<p>
+	<%= @user.tracks.all %>
+</p>
 
+
+<% @user.tracks.all.each do |t| %>
+<p>
+<%= link_to current_user.tracks.name, t.url %>
+</p>
+<% end %>
