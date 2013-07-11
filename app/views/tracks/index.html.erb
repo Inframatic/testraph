@@ -5,7 +5,9 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
+      <th>BPM</th>
       <th>Users</th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -17,6 +19,7 @@
       <tr>
         <td><%= track.title %></td>
         <td><%= track.description %></td>
+        <td><%= track.bpm %></td>
         <td><%= link_to track.user.username, track.user %></td>
         <td><%= link_to 'Show', track %></td>
         <% if current_user == track.user %>

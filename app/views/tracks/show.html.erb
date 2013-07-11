@@ -8,16 +8,20 @@
 <p>
   <strong>Description:</strong>
   <%= @track.description %>
+  <p>BPM: <%= @track.bpm %></p>
 </p>
-
-<% @track.stems.each do |stem| %>
-<%= stem.id %>
-<p>
-	<audio controls="controls">
-		<source src= <%= stem.audio.url %> type="audio/mpeg">
-	</audio>
-</p>
+<p><button id="play_all">Play/Pause All</button> <button class="reset_transient">Reset</button></p>
+<% @approved_stems.each do |stem| %>
+	<h3><%= stem.title %></h3>
+	<p>
+		<audio controls="controls" class="audio_player">
+			<source src= <%= stem.audio.url %> type="audio/mpeg">
+		</audio>
+	</p>
+	<%= link_to "Destroy", track_stem_path(@track, stem), method: :delete, data: {confirm: 'Are you sure you want to delete this stem?'} %>
 <% end %>
+
+
 
 
 <p>
@@ -25,7 +29,7 @@
 <%= link_to @track.user.username, @track.user %>
 </p>
 <% if current_user == @track.user %>
-	<%= linkt_to 'Add Stem', new_track_stem_path %> |
+	<%= link_to 'Add Stem', new_track_stem_path(@track) %> |
 	<%= link_to 'Edit Track', edit_track_path(@track) %> |
-	<%= link_to 'Destroy', @track, method: :delete, data: { confirm: 'Are you sure?' } %>|
+	<%= link_to 'Destroy', @track, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>

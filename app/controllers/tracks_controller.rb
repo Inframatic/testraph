@@ -9,6 +9,7 @@ class TracksController < ApplicationController
 
   def show
   	@track = Track.find(params[:id])
+    @approved_stems = @track.stems.where(:approved => true)
   end
 
   def new
@@ -62,6 +63,6 @@ class TracksController < ApplicationController
   end
 
   def track_params
-    params.require(:track).permit(:title, :description, :stems_attributes => [:audio])
+    params.require(:track).permit(:title, :description, :bpm, :stems_attributes => [:audio, :title])
   end
 end

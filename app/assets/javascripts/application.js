@@ -18,6 +18,26 @@
 // Loads all Bootstrap javascripts
 //= require bootstrap
 
-// Audio Player function
- $( function() { $( 'audio' ).audioPlayer(); } );
+
+
+$(function() {
+	$("#play_all").click(function() {
+		$('.audio_player').each(function( index ) {
+			if ($(this)[0].paused) {
+				$(this)[0].play();
+		} else {
+			$(this)[0].pause();
+		}
+		});
+	});
+	$('.reset_transient').click(function() {
+
+		$('.audio_player').each(function() {
+			$(this)[0].currentTime = 0;
+		});
+
+	});
+
+		
+});
 

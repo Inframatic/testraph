@@ -44,7 +44,8 @@ class StemsController < ApplicationController
   def destroy
     @stem.destroy
     respond_to do |format|
-      format.html {redirect_to tracks_url}
+      # format.html {redirect_to tracks_url}
+      format.html {redirect_to track_url(params[:track_id])}
     end
   end
 
@@ -55,7 +56,7 @@ class StemsController < ApplicationController
   end
 
   def stem_params
-    params.require(:stem).permit(:audio)
+    params.require(:stem).permit(:audio, :title)
   end
 end
 
