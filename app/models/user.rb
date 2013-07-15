@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   has_many :tracks, :dependent => :destroy
   has_many :stems
+  has_many :comments
   
 
   def self.find_first_by_auth_conditions(warden_conditions)

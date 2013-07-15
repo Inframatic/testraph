@@ -10,6 +10,8 @@ class TracksController < ApplicationController
   def show
   	@track = Track.find(params[:id])
     @approved_stems = @track.stems.where(:approved => true)
+    @comment = Comment.new
+    @comments = @track.comments
   end
 
   def queue

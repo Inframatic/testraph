@@ -1,5 +1,6 @@
 class Track < ActiveRecord::Base
 	has_many :stems
+	has_many :comments
 	accepts_nested_attributes_for :stems
 	belongs_to :user
 

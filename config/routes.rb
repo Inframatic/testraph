@@ -1,8 +1,9 @@
 Vividaura::Application.routes.draw do
   resources :tracks do
+    resources :comments, :except => [:index, :update]
     member do 
       get :queue
-    end
+  end
     resources :stems do
       put :approve
     end
