@@ -1,6 +1,6 @@
 class TracksController < ApplicationController
   include ActionController::Live
-  before_filter :authenticate_user!, except: [:index]
+  before_filter :authenticate_user!, except: [:index, :show]
   before_action :set_track, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -10,6 +10,12 @@ class TracksController < ApplicationController
   def show
   	@track = Track.find(params[:id])
     @approved_stems = @track.stems.where(:approved => true)
+  end
+
+  def queue
+    @track = Track.find(params[:id])
+    @disapproved_stems = @track.stems.where(:approved => false)
+
   end
 
   def new
@@ -23,8 +29,6 @@ class TracksController < ApplicationController
   end
 
   def create
-    # @track = Track.new(track_params)
-
     @track = current_user.tracks.new(track_params)
 
     respond_to do |format|
@@ -63,6 +67,8 @@ class TracksController < ApplicationController
   end
 
   def track_params
-    params.require(:track).permit(:title, :description, :bpm, :stems_attributes => [:audio, :title])
+    params[:track][:stems_attributes]['0'][:user_id] = current_user.id
+    params[:track][:stems_attributes]['0'][:approved] = true
+    params.require(:track).permit(:title, :description, :bpm, :stems_attributes => [:audio, :title, :user_id, :approved])
   end
 end

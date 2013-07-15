@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:login]
 
   validate :sanitize_username, :on => :create
+  validates :username, uniqueness: true
 
   has_many :tracks, :dependent => :destroy
   has_many :stems

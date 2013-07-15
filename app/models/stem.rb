@@ -3,5 +3,8 @@ class Stem < ActiveRecord::Base
 	belongs_to :track
 	belongs_to :user
 
+def findUser
+@user = User.find(self.user_id)
+end
 
 end

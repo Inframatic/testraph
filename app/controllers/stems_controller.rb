@@ -22,6 +22,10 @@ class StemsController < ApplicationController
   	@track = Track.find( params[:track_id] )
     @stem = @track.stems.build(stem_params)
 
+    if current_user == @track.user
+      @stem.approved = true
+    end
+
     respond_to do |format|
       if @stem.save
         format.html { redirect_to track_url(params[:track_id]), notice: "Stem created."}
@@ -41,6 +45,16 @@ class StemsController < ApplicationController
     end
   end
 
+  def approve
+    @track = Track.find(params[:track_id])
+    @stem = @track.stems.find(params[:stem_id])
+    @stem.update_attributes(:approved => true)
+    respond_to do |format|
+      format.html {redirect_to track_url(params[:track_id])}
+    end
+  end
+
+
   def destroy
     @stem.destroy
     respond_to do |format|
@@ -56,7 +70,8 @@ class StemsController < ApplicationController
   end
 
   def stem_params
-    params.require(:stem).permit(:audio, :title)
+    params[:stem][:user_id] = current_user.id
+    params.require(:stem).permit(:audio, :title, :user_id, :approved)
   end
 end
 
