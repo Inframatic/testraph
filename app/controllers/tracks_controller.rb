@@ -1,21 +1,20 @@
 class TracksController < ApplicationController
   include ActionController::Live
   before_filter :authenticate_user!, except: [:index, :show]
-  before_action :set_track, only: [:show, :edit, :update, :destroy]
+  before_filter :set_track, only: [:show, :edit, :update, :destroy, :queue]
+  before_filter :ensure_current_user_is_owner, only: :queue
 
   def index
   	@tracks = Track.all
   end
 
   def show
-  	@track = Track.find(params[:id])
     @approved_stems = @track.stems.where(:approved => true).order('created_at desc')
     @comment = Comment.new
     @comments = @track.comments.order("created_at desc")
   end
 
   def queue
-    @track = Track.find(params[:id])
     @disapproved_stems = @track.stems.where(:approved => false).order('created_at desc')
 
   end
@@ -68,9 +67,15 @@ class TracksController < ApplicationController
     @track = Track.find(params[:id])
   end
 
+  def ensure_current_user_is_owner
+    if current_user != @track.user
+      redirect_to tracks_url, :alert => 'Fuck off.'
+    end
+  end
+
   def track_params
-    params[:track][:stems_attributes]['0'][:user_id] = current_user.id
-    params[:track][:stems_attributes]['0'][:approved] = true
+    # params[:track][:stems_attributes]['0'][:user_id] = current_user.id
+    # params[:track][:stems_attributes]['0'][:approved] = true
     params.require(:track).permit(:title, :description, :bpm, :stems_attributes => [:audio, :title, :user_id, :approved])
   end
 end

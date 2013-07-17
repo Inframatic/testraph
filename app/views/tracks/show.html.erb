@@ -23,7 +23,7 @@
 			<source src= <%= stem.audio.url %> type="audio/mpeg">
 		</audio>
 	</p>
-	<p>Uploaded by: <%= link_to stem.findUser.username, stem.findUser %> |
+	<p>Uploaded by: <%= link_to stem.user.username, stem.user %> |
 	<%= link_to "Download", stem.audio.url %> |
 	<% if current_user == @track.user %>
 	<%= link_to "Destroy", track_stem_path(@track, stem), method: :delete, data: {confirm: 'Are you sure you want to delete this stem?'} %>

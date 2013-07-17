@@ -1,16 +1,22 @@
 <h2>New Track</h2>
 
-<%= simple_form_for(@track, html: {class: "form-horizontal"}) do |t| %>
-<%= t.error_notification %>
+<%= form_for @track do |t| %>
+<%= render "shared/form_errors", :object => @track %>
 
-	<%= t.input :title %>
-	<%= t.input :description %>
-	<%= t.input :bpm %>
+	<%= t.label :title %>
+	<%= t.text_field :title %>
+	<%= t.label :description %>
+	<%= t.text_field :description %>
+	<%= t.label :bpm %>
+	<%= t.text_field :bpm %>
 
 	<h2>Upload Stem: </h2>
 	<%= t.fields_for :stems do |stems_form| %>
-		<%= stems_form.input :title %>
+		<%= stems_form.label :title %>
+		<%= stems_form.text_field :title %>
 		<p><%= stems_form.file_field :audio %></p>
+		<%= stems_form.hidden_field :user_id, :value => current_user.id %>
+		<%= stems_form.hidden_field :approved, :value => true %>
 	<% end %>
 
 	<div class="form-actions">

@@ -1,4 +1,4 @@
-<% if current_user == @track.user %>
+<% if !@disapproved_stems.blank? %>
 
 <% @disapproved_stems.each do |stem| %>
 	<h3><%= stem.title %></h3>
@@ -16,7 +16,7 @@
 
 <% else %>
 
-<h1>You don't have permission!</h1>
+<h1>Currently no queued tracks.</h1>
 
 <% end %>
 

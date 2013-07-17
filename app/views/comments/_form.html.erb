@@ -1,6 +1,6 @@
-<%= simple_form_for([@track, @comment]) do |f| %>
-	<%= f.error_notification %>
+<%= form_for([@track, @comment]) do |f| %>
+	<%= render "shared/form_errors", :object => @comment %>
 <%= f.label :comment %>
-<%= f.input :text %>
+<%= f.text_field :text %>
 <%= f.submit %>
 <% end %>
