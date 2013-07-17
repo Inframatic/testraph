@@ -9,7 +9,13 @@ Vividaura::Application.routes.draw do
     end
   end
 
+  resources :relationships, only: [:create, :destroy]
+
   devise_for :users
+
+  get 'users/:id/following' => 'users#following', as: :users_following
+  get 'users/:id/followers' => 'users#followers', as: :users_followers
+
   get 'users/:id' => 'users#show', as: :user
   root 'pages#home'
 

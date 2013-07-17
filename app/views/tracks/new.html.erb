@@ -1,30 +1,15 @@
 <h2>New Track</h2>
 
-<%= form_for @track do |t| %>
-	<% if @track.errors.any? %>
-	  <div id="error_explanation">
-	    <h2><%= pluralize(@track.errors.count, "error") %> prohibited this post from being saved:</h2>
-	    <ul>
-	    <% @track.errors.full_messages.each do |msg| %>
-	      <li><%= msg %></li>
-	    <% end %>
-	    </ul>
-	  </div>
-	<% end %>
+<%= simple_form_for(@track, html: {class: "form-horizontal"}) do |t| %>
+<%= t.error_notification %>
 
-	<%= t.label :title %>
-	<%= t.text_field :title %>
-
-	<%= t.label :description %>
-	<%= t.text_field :description %>
-
-	<%= t.label :bpm %>
-	<%= t.text_field :bpm %>	
+	<%= t.input :title %>
+	<%= t.input :description %>
+	<%= t.input :bpm %>
 
 	<h2>Upload Stem: </h2>
 	<%= t.fields_for :stems do |stems_form| %>
-		<%= stems_form.label :title %>
-		<%= stems_form.text_field :title %>
+		<%= stems_form.input :title %>
 		<p><%= stems_form.file_field :audio %></p>
 	<% end %>
 

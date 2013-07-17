@@ -9,14 +9,14 @@ class TracksController < ApplicationController
 
   def show
   	@track = Track.find(params[:id])
-    @approved_stems = @track.stems.where(:approved => true)
+    @approved_stems = @track.stems.where(:approved => true).order('created_at desc')
     @comment = Comment.new
-    @comments = @track.comments
+    @comments = @track.comments.order("created_at desc")
   end
 
   def queue
     @track = Track.find(params[:id])
-    @disapproved_stems = @track.stems.where(:approved => false)
+    @disapproved_stems = @track.stems.where(:approved => false).order('created_at desc')
 
   end
 

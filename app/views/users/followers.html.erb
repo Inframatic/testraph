@@ -1,0 +1,5 @@
+<% @user ||= current_user %>
+<% @user.followers.each do |f| %>
+
+<h1><%= f.username %></h1>
+<% end %>
