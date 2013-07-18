@@ -1,7 +1,7 @@
 class Track < ActiveRecord::Base
 	include PublicActivity::Model
   tracked owner: ->(controller, model) { controller && controller.current_user }, 
-	  :on => {:destroy => proc {|model, controller| model.activities.destroy_all }},
+	  :on => {:destroy => proc {|model, controller| model.activities.delete_all }},
 	  :only => [:create]
 
 	has_many :stems, :dependent => :destroy
