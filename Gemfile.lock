@@ -1,3 +1,10 @@
+GIT
+  remote: git@github.com:pokonski/public_activity.git
+  revision: 93f64ee4be48e189c6833e1612f192f8761e73a7
+  specs:
+    public_activity (1.4.0)
+      i18n (>= 0.5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -83,11 +90,6 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
-    public_activity (0.5.4)
-      actionpack (>= 3.0.0)
-      activerecord (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      i18n (>= 0.5.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -161,7 +163,7 @@ DEPENDENCIES
   jquery-turbolinks
   mini_magick
   pry
-  public_activity
+  public_activity!
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc

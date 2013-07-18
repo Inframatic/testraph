@@ -15,8 +15,10 @@
   <%= @track.description %>
   <p>BPM: <%= @track.bpm %></p>
 </p>
+
 <p><button id="play_all">Play/Pause All</button> <button class="reset_transient">Reset</button></p>
 <% @approved_stems.each do |stem| %>
+
 	<h3><%= stem.title %></h3>
 	<p>
 		<audio controls="controls" class="audio_player">

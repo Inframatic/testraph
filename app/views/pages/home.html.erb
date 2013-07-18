@@ -1,7 +1,8 @@
 <% if user_signed_in? %>
 
 <div class="hero-unit">
-	<h1>Welcome back <%= current_user.username %></h1>
+	<h3>Welcome back <%= current_user.username %></h3>
+	<%= render 'public_activity/index' %>
 </div>
 
 <% else %>

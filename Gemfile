@@ -31,7 +31,7 @@ gem 'devise', '3.0.0.rc'
 gem 'simple_form', '~> 3.0.0.rc'
 gem 'pry', :group => :development
 gem 'jquery-turbolinks'
-gem 'public_activity'
+gem 'public_activity', :git => "git@github.com:pokonski/public_activity.git"
 gem "binding_of_caller"
 gem "mini_magick"
 gem 'carrierwave'

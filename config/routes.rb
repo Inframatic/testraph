@@ -9,6 +9,8 @@ Vividaura::Application.routes.draw do
     end
   end
 
+  resources :activities, :controller => "public_activity"
+
   resources :relationships, only: [:create, :destroy]
 
   devise_for :users
