@@ -7,10 +7,10 @@
 			<source src= <%= stem.audio.url %> type="audio/mpeg">
 		</audio>
 		
-<%= link_to "Approve", track_stem_approve_path(@track, stem), :method => :put %>
+<%= link_to "Approve", track_stem_approve_path(@track, stem), :method => :put, class: "btn btn-primary" %>
 	</p>
-
-	<%= link_to "Destroy", track_stem_path(@track, stem), method: :delete, data: {confirm: 'Are you sure you want to delete this stem?'} %>
+ Uploaded at: <%= format_date(stem.created_at) %> <strong>by: <%= link_to User.find(stem.user_id).username, User.find(stem.user_id) %></strong>|
+	<%= link_to "Delete Stem", track_stem_path(@track, stem), method: :delete, data: {confirm: 'Are you sure you want to delete this stem?'} %>
 
 <% end %>
 

@@ -10,7 +10,7 @@
   <%= f.input :password_confirmation, label: "New Password Confirmation", autocomplete: "off" %>
 
   <h2>Update Avatar</h2>
-  <%= image_tag(@user.avatar_url) if @user.avatar? %>
+  <%= image_tag(@user.avatar.thumb.url) if @user.avatar? %>
   <p class="upload_avatar_move">Upload Avatar <%= f.file_field :avatar %></p>
 
 

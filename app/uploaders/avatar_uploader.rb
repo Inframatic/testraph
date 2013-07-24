@@ -7,7 +7,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
    include CarrierWave::MiniMagick
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
-  # include Sprockets::Helpers::RailsHelper
+  include Sprockets::Rails::Helper
   # include Sprockets::Helpers::IsolatedHelper
 
   # Choose what kind of storage to use for this uploader:
@@ -21,12 +21,13 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  # def default_url
+  def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  #
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
+    # asset_path("/images/fallback/" + [version_name, "default.png"].compact.join('_'))
+  
+  # WONT WORK IN PRODUCTION!!!!!!
+      "/assets/fallback/" + [version_name, "default.png"].compact.join('_')
+   end
 
   # Process files as they are uploaded:
    process :resize_to_fit => [500, 500]
@@ -39,6 +40,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
    version :thumb do
      process :resize_to_fill => [90, 90]
    end
+
+   version :small_thumb, :from_version => :thumb do
+    process resize_to_fill: [20, 20]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

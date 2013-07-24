@@ -1,68 +1,29 @@
-$navbarBackgroundHighlight: #34495E;
-$navbarLinkColorHover: #BDC3C7;
-$navbarLinkColor: #ECF0F1;
+$navbarBackgroundHighlight: white;
+$navbarBackground: white;
+$navbarBrandColor: #2ECC71;
+$btnPrimaryBackgroundHighlight: #27AE60;
 $btnPrimaryBackground: #2ECC71;
-$baseFontFamily: Oxygen;
-@import url(http://fonts.googleapis.com/css?family=Oxygen);
 
 @import 'bootstrap';
 @import 'bootstrap-responsive';
 
-/* Flatten das boostrap */
-.well, .navbar-inner, .popover, .btn, .tooltip, input, select, textarea, pre, .progress, .modal, .add-on, .alert, .table-bordered, .nav>.active>a, .dropdown-menu, .tooltip-inner, .badge, .label, .img-polaroid {
-  -moz-box-shadow: none !important;
-	-webkit-box-shadow: none !important;
-	box-shadow: none !important;
-	-webkit-border-radius: 0px !important;
-	-moz-border-radius: 0px !important;
-	border-radius: 0px !important;
-	border-collapse: collapse !important;
-	background-image: none !important;
+.wrapper {
+  padding-top: 50px;
 }
 
-.username_move {
-	position: relative;
-	left: 100px;
+a {
+  color: #2ECC71;
 }
 
-.username_move p {
-	padding-bottom: 8px;
-	padding-top: 10px;
+a:hover {
+  color: #27AE60;
+  text-decoration: none;
 }
 
-.upload_audio {
-	
-	position: relative;
-	left: 67px;
-	padding: 17px;
-}
 
-.user_profile_name {
-	
-	position: relative;
-	left: 30px;
-}
 
-.upload_avatar_move {
-	
-	position: relative;
-	left: 67px;
-	padding: 17px;
-}
 
-.avatar {
-	position: relative;
-	right: 80px;
-	bottom: 50px;
-}
 
-.edit_current_password {
-	position: relative;
-	right: 202px;
-}
 
-.update_button {
-	position: relative;
-	left: 230px;
-	bottom: 50px;
-}
+
+

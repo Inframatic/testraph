@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
+    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: @user, owner_type: "User").page(params[:page]).per_page(20)
   end
 
   def followers

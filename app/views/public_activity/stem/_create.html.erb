@@ -1,3 +1,3 @@
 <% if activity.trackable %>
-  uploaded a stem to <%= link_to activity.trackable.title, track_path(activity.trackable.track_id) %>.
+  uploaded a stem to <%= link_to activity.trackable.track.title, track_path(activity.trackable.track_id) %>.
 <% end %>

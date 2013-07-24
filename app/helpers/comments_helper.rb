@@ -1,6 +1,6 @@
 module CommentsHelper
 	def format_date(time)
 	
-		time.in_time_zone("Eastern Time (US & Canada)").strftime("%B %e %Y | %l:%M %p")
+		time.in_time_zone("Eastern Time (US & Canada)").strftime("%B %e %Y - %l:%M %p")
 	end
 end

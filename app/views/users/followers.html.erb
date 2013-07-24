@@ -1,5 +1,10 @@
+<div class="row-fluid">
+	<div class="span6 well">
 <% @user ||= current_user %>
 <% @user.followers.each do |f| %>
 
-<h1><%= f.username %></h1>
+<h3><img src=<%=f.avatar.thumb.url%>> <%= link_to f.username, user_path(f.id) %></h3>
+
 <% end %>
+</div>
+</div>

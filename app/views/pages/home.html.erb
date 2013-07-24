@@ -1,7 +1,13 @@
 <% if user_signed_in? %>
-
-<div class="hero-unit">
-	<h3>Welcome back <%= current_user.username %></h3>
+<div class="row">
+	<div class="span4">
+	<div class="alert">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		<p>Welcome back <%= current_user.username %></p>
+	</div>
+</div>
+</div>
+<div class="well well-small">
 	<%= render 'public_activity/index' %>
 </div>
 

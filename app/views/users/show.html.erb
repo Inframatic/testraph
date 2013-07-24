@@ -1,10 +1,14 @@
-<h1 class="user_profile_name"><%= @user.username %></h1>
-<div class="avatar">
-	<img src=<%=@user.avatar.thumb.url%>>
-</div>
-<p> <%= render 'stats' %> </p>
-<p>
 
+<div class="row">
+  <div class="span5 offest2 well">
+
+		<img src=<%=@user.avatar.thumb.url%>>
+
+    <h1 class="user_profile_name"><%= @user.username %></h1>
+	<p class="stats"> <%= render 'stats' %> </p>
+	<p>
+</div>
+<div class="follow_button">
   <% unless current_user.id.to_s == params[:id] %>
   <% if current_user.following?(@user) %>
     <%= render 'unfollow' %>
@@ -13,11 +17,23 @@
   <% end %>
   <% end %>
 </p>
+</div>
+</div>
 
+<div class="row">
+<div class="span5 well well">
+<%= render 'public_activity/index' %>
 
+</div>
+</div>
 
-<% current_user.tracks.each do |t| %>
+<div class="row">
+  <div class="span4 offset6 well">
+    <h3>Started Tracks</h3>
+<% @user.tracks.each do |t| %>
 <p>
 <%= link_to t.title, t %>
 </p>
 <% end %>
+</div>
+</div>

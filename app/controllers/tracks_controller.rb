@@ -8,13 +8,15 @@ class TracksController < ApplicationController
   	@tracks = Track.all
   end
 
+  # Public View
   def show
     @approved_stems = @track.stems.where(:approved => true).order('created_at desc')
     @comment = Comment.new
     @comments = @track.comments.order("created_at desc")
   end
 
-  def queue
+  # Private queue
+  def queue 
     @disapproved_stems = @track.stems.where(:approved => false).order('created_at desc')
 
   end
