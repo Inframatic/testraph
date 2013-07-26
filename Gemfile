@@ -22,6 +22,7 @@ gem 'carrierwave'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
+gem "cocoon"
 
 group :development do
   gem "better_errors"

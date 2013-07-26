@@ -5,7 +5,7 @@ class TracksController < ApplicationController
   before_filter :ensure_current_user_is_owner, only: :queue
 
   def index
-  	@tracks = Track.all
+    @tracks = Track.where(:is_private => false).order('created_at desc')
   end
 
   # Public View
@@ -45,7 +45,6 @@ class TracksController < ApplicationController
 
   def update
     @track = current_user.tracks.find(params[:id])
-
   	respond_to do |format|
       if @track.update(track_params)
         format.html { redirect_to @track, notice: 'Track was successfully updated.' }
@@ -78,6 +77,6 @@ class TracksController < ApplicationController
   def track_params
     # params[:track][:stems_attributes]['0'][:user_id] = current_user.id
     # params[:track][:stems_attributes]['0'][:approved] = true
-    params.require(:track).permit(:title, :description, :bpm, :stems_attributes => [:audio, :title, :user_id, :approved])
+    params.require(:track).permit(:title, :description, :bpm, :is_private, :stems_attributes => [:audio, :title, :user_id, :approved], :collabs_attributes =>[:email, :id, :_destroy])
   end
 end

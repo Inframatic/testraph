@@ -1,3 +1,4 @@
 <% if activity.trackable %>
- added comment to <%= link_to activity.trackable.track.title, activity.trackable.track %>.
+ added comment "<i><%= activity.trackable.text %> </i>" to <%= link_to activity.trackable.track.title, activity.trackable.track %>.
+ <p> </p>
 <% end %>

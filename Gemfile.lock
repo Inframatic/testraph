@@ -48,6 +48,7 @@ GEM
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+    cocoon (1.2.0)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -160,6 +161,7 @@ DEPENDENCIES
   bootstrap-sass (~> 2.3.2.0)
   bootstrap-will_paginate (= 0.0.6)
   carrierwave
+  cocoon
   coffee-rails (~> 4.0.0)
   devise (= 3.0.0.rc)
   jbuilder (~> 1.2)

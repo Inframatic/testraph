@@ -9,6 +9,8 @@
 	<%= t.text_field :description %>
 	<%= t.label :bpm %>
 	<%= t.text_field :bpm %>
+	<%= t.label :is_private, "Private?" %>
+	<%= t.check_box :is_private %>
 
 	<h2>Upload Stem: </h2>
 	<%= t.fields_for :stems do |stems_form| %>

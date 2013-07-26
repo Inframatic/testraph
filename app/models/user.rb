@@ -20,6 +20,9 @@ class User < ActiveRecord::Base
                                     :dependent => :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
 
+  has_many :track_collabs, through: :collabs, :class_name => "Track"
+  has_many :collabs, :dependent => :destroy
+
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
@@ -46,4 +49,5 @@ class User < ActiveRecord::Base
   def sanitize_username
   	self.username = username.downcase.gsub(" ", "")
   end
+
 end

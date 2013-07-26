@@ -13,10 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 // require turbolinks
-//= require_tree .
 // require jquery.turbolinks
 // Loads all Bootstrap javascripts
 //= require bootstrap
+//= require cocoon
+//= require_tree .
 
 
 

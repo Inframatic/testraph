@@ -8,7 +8,8 @@ $btnPrimaryBackground: #2ECC71;
 @import 'bootstrap-responsive';
 
 .wrapper {
-  padding-top: 50px;
+  padding-left: 130px;
+  padding-top: 20px;
 }
 
 a {
@@ -21,6 +22,70 @@ a:hover {
 }
 
 
+
+/*MENU ----------------------------------------------------*/
+
+.menu {
+    margin-left: -150px; 
+    width: 150px;
+    position: fixed;
+    top: 0;
+    left: 150px;
+    bottom: 0;
+    z-index: 1000; 
+    background: #ECF0F1;
+    overflow-y: auto;
+    -webkit-overflow-scroll: touch;
+}
+
+
+
+.menu .brand {
+	padding-left: 10px;
+	padding-top: 10px;
+
+
+}
+
+.menu li {
+	list-style: none;
+	padding-left: 10px;
+	padding: 5px 10px;
+}
+
+.menu img {
+	padding-left: 10px;
+ -moz-border-radius:52px;
+ -webkit-border-radius:52px;
+ border-radius:52px;
+width:90px;
+height:90px;
+}
+
+.menu_userinfo {
+	padding-top: 50px;
+}
+
+/*-----------------------------------------------------------------*/
+
+/*USER SHOW PAGE -----------------------------------------------------*/
+
+.userinfo {
+
+
+}
+
+.useractivity {
+	display: block;
+	padding-left: 150px;
+}
+
+.usertracks {
+	display: block;
+	padding-left: 150px;
+}
+
+/*-----------------------------------------------------------------------*/
 
 
 

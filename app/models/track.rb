@@ -6,9 +6,12 @@ class Track < ActiveRecord::Base
 
 	has_many :stems, :dependent => :destroy
 	has_many :comments, :dependent => :destroy
-	accepts_nested_attributes_for :stems
+	has_many :users, through: :collabs
+	has_many :collabs, :dependent => :destroy
 	belongs_to :user
 
+	accepts_nested_attributes_for :stems
+	accepts_nested_attributes_for :collabs, :allow_destroy => true, :update_only => true, :reject_if => lambda { |c| c[:email].blank? }
 	validates :user_id, presence: true
 
 end
