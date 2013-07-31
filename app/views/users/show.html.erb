@@ -1,34 +1,46 @@
-  <div class="userinfo">
+<div class="row-fluid">
+  <div class="span4 well well-small">
+    <%= image_tag @user.avatar.thumb.url %>
 
-		<img src=<%=@user.avatar.thumb.url%>>
+    <h1 class="user_profile_name">
+      <%= @user.username %>
+    </h1>
 
-    <h1 class="user_profile_name"><%= @user.username %></h1>
-	<p class="stats"> <%= render 'stats' %> </p>
+  	<p class="stats">
+      <%= render 'stats' %>
+    </p>
 
-  <% unless current_user.id.to_s == params[:id] %>
-    <% if current_user.following?(@user) %>
-      <%= render 'unfollow' %>
-    <% else %>
-      <%= render 'follow' %>
+    <% unless current_user.id.to_s == params[:id] %>
+      <% if current_user.following?(@user) %>
+        <%= render 'unfollow' %>
+      <% else %>
+        <%= render 'follow' %>
+      <% end %>
     <% end %>
-  <% end %>
 
-</div>
+<p>------------------------------------</p>
+
+    <h3>Created Tracks</h3>
+    <% @user.tracks.each do |t| %>
+      <p>
+      <%= link_to t.title, t %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="span8 well">
+    <%= render 'public_activity/index' %>
+
+  </div>
+
+
+  
 
 
 
-<div class="useractivity">
-<%= render 'public_activity/index' %>
-</div>
 
 
 
 
-<div class="usertracks">
-<h3>Created Tracks</h3>
-<% @user.tracks.each do |t| %>
-<p>
-<%= link_to t.title, t %>
-</p>
-<% end %>
-</div>
+
+

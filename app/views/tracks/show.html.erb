@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 <% if @track.collabs.map(&:user).include?(current_user) || current_user == @track.user %> 
+
+<div class="row-fluid">
+	<div class="span4 well well-small">
 	<p>
 		<%= link_to 'Add Stem', new_track_stem_path(@track) %> | 
 		<strike><%= link_to "Download All", "#" %></strike> | 
@@ -9,8 +12,7 @@
 		<% end %>
 	</p>
 
-	<div class="row">
-		<div class="span2 well">
+
 			<p>
 			  <strong>Title:</strong>
 			  <%= @track.title %>
@@ -19,7 +21,7 @@
 			<p>
 			  <strong>Description:</strong>
 			  <%= @track.description %>
-			  <p>BPM: <%= @track.bpm %></p>
+			  <strong><p>BPM: <%= @track.bpm %></p></strong>
 			</p>
 
 			<p>
@@ -32,19 +34,20 @@
 				<%= link_to 'Edit Track', edit_track_path(@track) %> |
 				<%= link_to 'Delete Track', @track, method: :delete, data: { confirm: 'Are you sure?' } %>
 			<% end %>
-		</div>
+
+
 	</div>
 
-	<div class="row">
-		<div class="span7 offset1 well">
-
+<div class="span6 well well-small">
 			<p>
 				<button id="play_all">Play/Pause All</button>
 				<button class="reset_transient">Reset</button>
 			</p>
 
+			<div class="track_space">
+
 			<% @approved_stems.each do |stem| %>
-				<h4><%= stem.title %></h4><%= format_date(stem.created_at) %>
+				<h4 class="stemtitle"><%= stem.title %></h4><%= format_date(stem.created_at) %>
 				<p>
 					<audio controls="controls" class="audio_player">
 						<source src= <%= stem.audio.url %> type="audio/mpeg">
@@ -59,15 +62,16 @@
 			<% end %>
 		</div>
 	</div>
-	<div class="row-fluid">
-		<div class='span12 well'>
+</div>
 
+<div class="row-fluid">
+	<div class="span12 well well-small">
 				<h3>Comments</h3>
 				<%= render 'comments/show' %>
 				<p><%= render 'comments/form' %></p>
-
-		</div>
 	</div>
+</div>
+
 
 <% else %>
 

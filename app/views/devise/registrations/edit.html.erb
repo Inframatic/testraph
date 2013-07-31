@@ -1,13 +1,22 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true, class: 'form-horizontal' }) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
+<%= devise_error_messages! %>
+
   <span class="username_move">
   <p> Username:&nbsp;&nbsp; <%= resource.username %> </p>
   </span>
-  <%= f.input :email %>
-  <%= f.input :password, label: "New Password", autocomplete: "off" %>
-  <%= f.input :password_confirmation, label: "New Password Confirmation", autocomplete: "off" %>
+  
+  <%= f.label :email %>
+  <%= f.email_field :email, :autofocus => true %>
+
+  <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <%= f.password_field :password, :autocomplete => "off" %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
+
 
   <h2>Update Avatar</h2>
   <%= image_tag(@user.avatar.thumb.url) if @user.avatar? %>
@@ -18,7 +27,8 @@
   
 
   <div class="form-actions">
-    <span class="edit_current_password"><%= f.input :current_password %></span>
+    <span class="edit_current_password"><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <%= f.password_field :current_password %></span>
     <span class="update_button"><%= f.submit "Update", class: "btn btn-primary"%></span>
   </div>
 <% end %>

@@ -3,14 +3,10 @@ $navbarBackground: white;
 $navbarBrandColor: #2ECC71;
 $btnPrimaryBackgroundHighlight: #27AE60;
 $btnPrimaryBackground: #2ECC71;
+$dropdownLinkBackgroundHover: #2ECC71;
 
 @import 'bootstrap';
-@import 'bootstrap-responsive';
 
-.wrapper {
-  padding-left: 130px;
-  padding-top: 20px;
-}
 
 a {
   color: #2ECC71;
@@ -22,73 +18,28 @@ a:hover {
 }
 
 
+body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
 
-/*MENU ----------------------------------------------------*/
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
 
-.menu {
-    margin-left: -150px; 
-    width: 150px;
-    position: fixed;
-    top: 0;
-    left: 150px;
-    bottom: 0;
-    z-index: 1000; 
-    background: #ECF0F1;
-    overflow-y: auto;
-    -webkit-overflow-scroll: touch;
+.track_space {
+  margin: 20px;
 }
 
-
-
-.menu .brand {
-	padding-left: 10px;
-	padding-top: 10px;
-
-
+.stemtitle {
+  padding-top: 30px;
 }
-
-.menu li {
-	list-style: none;
-	padding-left: 10px;
-	padding: 5px 10px;
-}
-
-.menu img {
-	padding-left: 10px;
- -moz-border-radius:52px;
- -webkit-border-radius:52px;
- border-radius:52px;
-width:90px;
-height:90px;
-}
-
-.menu_userinfo {
-	padding-top: 50px;
-}
-
-/*-----------------------------------------------------------------*/
-
-/*USER SHOW PAGE -----------------------------------------------------*/
-
-.userinfo {
-
-
-}
-
-.useractivity {
-	display: block;
-	padding-left: 150px;
-}
-
-.usertracks {
-	display: block;
-	padding-left: 150px;
-}
-
-/*-----------------------------------------------------------------------*/
-
-
-
-
-
 

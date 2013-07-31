@@ -1,19 +1,24 @@
-
 		<h3>Activity Feed</h3>
 		<% @activities.each do |activity| %>
 			
 			<% if activity.trackable %>
+		
+			<div class="span10 well well-small">
 			<p> 
 				<img src=<%=activity.owner.avatar.thumb.url%>> 
 				<%= link_to activity.owner.username, activity.owner if activity.owner %>
 				<%= render_activity activity %>
-				<%= format_date(activity.created_at) %> 
+				<p><%= format_date(activity.created_at) %></p>
 			</p>
+		</div>
+
+
 
 			<% end %>
 
 		<% end %>
 
-		<%= will_paginate @activities %>
 
+
+		<%= will_paginate @activities %>
 
