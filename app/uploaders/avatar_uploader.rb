@@ -23,7 +23,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
-     asset_path("assets/fallback/thumb_default.png")
+     ActionController::Base.helpers.asset_path("fallback/thumb_default.png")
   
   # WONT WORK IN PRODUCTION!!!!!!
       # "/assets/fallback/" + [version_name, "default.png"].compact.join('_')
