@@ -19,6 +19,9 @@ Vividaura::Application.routes.draw do
   get 'users/:id/followers' => 'users#followers', as: :users_followers
 
   get 'users/:id' => 'users#show', as: :user
+  get 'contact' => 'pages#contact'
+  get 'faq' => 'pages#faq'
+
   root 'pages#home'
 
  

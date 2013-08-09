@@ -1,34 +1,15 @@
-
-
-
-
-		<h3>Activity Feed</h3>
-		<% @activities.each do |activity| %>
-			
-			<% if activity.trackable %>
-		
-			<div class="span10 well well-small">
+<h3>Activity Feed</h3>
+<% @activities.each do |activity| %>
+	<% if activity.trackable and activity.trackable.respond_to? :track %>
+		<div class="span10 well well-small">
 			<p> 
-				<img src=<%=activity.owner.avatar.small_thumb.url%>> 
+				<img src=<%=activity.owner.avatar.thumb.url%>> 
 				<%= link_to activity.owner.username, activity.owner if activity.owner %>
-				<% if activity.trackable %>
-  uploaded a stem to <%= link_to activity.trackable.track.title, track_path(activity.trackable.track_id) %>.
-		<p>
-			<audio controls="controls" class="audio_player">
-			<source src= <%= activity.trackable.audio.url %> type="audio/mpeg">
-			</audio>
-		</p>
-<% end %>
+				<%= render_activity activity %>
 				<p><%= format_date(activity.created_at) %></p>
 			</p>
 		</div>
+	<% end %>
+<% end %>
 
-
-
-			<% end %>
-
-		<% end %>
-
-
-
-		<%= will_paginate @activities %>
+<%= will_paginate @activities %>

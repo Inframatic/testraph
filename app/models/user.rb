@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   validate :sanitize_username, :on => :create
   validates :username, uniqueness: true
+  validates :username, presence: true
 
 
   has_many :tracks, :dependent => :destroy

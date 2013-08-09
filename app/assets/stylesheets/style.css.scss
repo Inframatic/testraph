@@ -21,19 +21,22 @@ a:hover {
 body {
         padding-top: 60px;
         padding-bottom: 40px;
+        height: 100%
       }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
+      
 
-      @media (max-width: 980px) {
-        /* Enable use of floated navbar text */
-        .navbar-text.pull-right {
-          float: none;
-          padding-left: 5px;
-          padding-right: 5px;
-        }
-      }
+.sidebar-nav {
+  padding: 9px 0;
+}
+
+@media (max-width: 980px) {
+  /* Enable use of floated navbar text */
+  .navbar-text.pull-right {
+    float: none;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
 
 .track_space {
   margin: 20px;
@@ -42,4 +45,19 @@ body {
 .stemtitle {
   padding-top: 30px;
 }
+
+
+
+footer {
+  margin-top: 140px;
+  margin-bottom: -20px;
+}
+
+.footerlinks li {
+  display: inline;
+  text-decoration: none;
+  padding-left: 20px;
+}
+
+
 

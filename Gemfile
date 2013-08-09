@@ -16,7 +16,7 @@ gem 'devise', '3.0.0.rc'
 gem 'simple_form', '~> 3.0.0.rc'
 gem 'pry', :group => :development
 gem 'jquery-turbolinks'
-gem 'public_activity', :git => "git@github.com:pokonski/public_activity.git"
+gem 'public_activity', :git => "https://github.com/pokonski/public_activity.git"
 gem "binding_of_caller"
 gem "mini_magick"
 gem 'carrierwave'
@@ -24,6 +24,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem "cocoon"
+gem "fog", "~> 1.3.1"
 
 group :development do
   gem "better_errors"
