@@ -34,6 +34,7 @@ $(function() {
 	$('.reset_transient').click(function() {
 
 		$('.audio_player').each(function() {
+			$(this)[0].pause();
 			$(this)[0].currentTime = 0;
 		});
 
