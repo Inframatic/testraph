@@ -10,12 +10,14 @@
       <%= render 'stats' %>
     </p>
 
+    <% if user_signed_in? %>
     <% unless current_user.id.to_s == params[:id] %>
       <% if current_user.following?(@user) %>
         <%= render 'unfollow' %>
       <% else %>
         <%= render 'follow' %>
       <% end %>
+    <% end %>
     <% end %>
 
 <p>------------------------------------</p>
