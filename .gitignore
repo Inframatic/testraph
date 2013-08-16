@@ -17,3 +17,5 @@
 
 # ignore uploaded stems.
 /public/uploads
+# Ignore application configuration
+/config/application.yml

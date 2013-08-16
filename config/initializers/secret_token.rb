@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Vividaura::Application.config.secret_key_base = '517b9d7f1b612f12d45b879f3b3411157282bfa48213ab8b04cc74790484b19e40f8ff03e0473f223749657b8c5b334e45e131640cac16979c40b4670cf58547'
+Vividaura::Application.config.secret_key_base = ENV["SECRET_TOKEN"]

@@ -85,7 +85,7 @@ Vividaura::Application.configure do
   :address              => "smtp.gmail.com",
   :port                 => 587,
   :user_name            => 'dillonraphael@gmail.com',
-  :password             => 'x542rbql',
+  :password             => ENV["MAILER_PASSWORD"],
   :authentication       => 'plain',
   :enable_starttls_auto => true  }
 end
