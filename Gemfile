@@ -26,6 +26,7 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem "cocoon"
 gem "fog", "~> 1.3.1"
 gem "figaro"
+gem "font-awesome-rails"
 
 group :development do
   gem "better_errors"
