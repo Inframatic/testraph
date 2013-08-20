@@ -1,7 +1,7 @@
 <% @comments.each do |comment| %>
 
 <p><%= comment.text %></p>
-<img src=<%=comment.user.avatar.small_thumb.url%>>&nbsp;<%= link_to comment.user.username, @track.user %>
+<img src=<%=comment.user.avatar.thumb.url%>>&nbsp;<%= link_to comment.user.username, @track.user %>
 <%= format_date(comment.created_at) %>
 
 <% if current_user == comment.user %>
