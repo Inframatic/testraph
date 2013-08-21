@@ -8,6 +8,16 @@ $dropdownLinkBackgroundHover: #2ECC71;
 @import 'bootstrap';
 @import "font-awesome";
 
+table
+{
+  border-spacing: none;
+  border-collapse: none;
+  color:black;
+}
+
+thead{
+  background-color:#2bc06a;
+}
 .form-actions {
   background-color: none;
   border-top: none;
