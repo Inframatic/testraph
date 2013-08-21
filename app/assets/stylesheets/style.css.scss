@@ -8,6 +8,10 @@ $dropdownLinkBackgroundHover: #2ECC71;
 @import 'bootstrap';
 @import "font-awesome";
 
+.form-actions {
+  background-color: none;
+  border-top: none;
+}
 .icon-circle {
   color: #2bc06a;
   border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
@@ -99,7 +103,9 @@ body {
   -o-border-radius: 8px;
   border-radius: 8px;
   text-align: left;
-  display: inline-block; }
+  display: inline-block;
+  border-bottom: 2px black;
+   }
   .bubble:hover > .over-bubble {
     opacity: 1; }
 
